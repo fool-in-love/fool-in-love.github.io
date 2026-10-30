@@ -1,0 +1,2172 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="teal" data-mode="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>André // ドヴォルザーク · Material 3 Expressive Portfolio</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans, JetBrains Mono, Noto Sans JP -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,700&family=JetBrains+Mono:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Official Material Symbols Outlined Variable Font (Full axes: opsz, wght, FILL, GRAD) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+            jp: ['"Noto Sans JP"', 'sans-serif'],
+          },
+          borderRadius: {
+            'm3-xs': '8px',
+            'm3-sm': '12px',
+            'm3-md': '16px',
+            'm3-lg': '24px',
+            'm3-xl': '32px',
+            'm3-2xl': '44px',
+            'm3-full': '9999px',
+          },
+          boxShadow: {
+            'm3-1': '0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30)',
+            'm3-2': '0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.30)',
+            'm3-3': '0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.30)',
+            'm3-4': '0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.30)',
+            'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+            'glow': '0 0 45px var(--accent-glow)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ==========================================================
+       MATERIAL 3 EXPRESSIVE DYNAMIC COLOR PALETTES (GENERIC NAMES)
+    ========================================================== */
+    :root {
+      /* M3 Expressive Motion Tokens */
+      --m3-easing-emphasized: cubic-bezier(0.2, 0, 0, 1.0);
+      --m3-easing-effects: cubic-bezier(0.4, 0, 0.2, 1.0);
+      --m3-spring-spatial: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --m3-spring-fast: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      --m3-spring-gentle: cubic-bezier(0.25, 1.15, 0.5, 1);
+      
+      --m3-duration-short: 150ms;
+      --m3-duration-medium: 300ms;
+      --m3-duration-long: 500ms;
+      --m3-duration-extra-long: 800ms;
+
+      /* Palette: Teal (Default Dark) */
+      --primary: #4ed8e7;
+      --on-primary: #00363b;
+      --primary-container: #004f56;
+      --on-primary-container: #83f4ff;
+
+      --secondary: #b1cbd0;
+      --on-secondary: #1c3438;
+      --secondary-container: #334b4f;
+      --on-secondary-container: #cde7ec;
+
+      --tertiary: #b7c7ea;
+      --on-tertiary: #21314d;
+      --tertiary-container: #374765;
+      --on-tertiary-container: #d7e3ff;
+
+      --surface: #0e1415;
+      --on-surface: #dfe4e5;
+      --surface-container-lowest: #090f10;
+      --surface-container-low: #171d1e;
+      --surface-container: #1b2122;
+      --surface-container-high: #252b2c;
+      --surface-container-highest: #303637;
+
+      --surface-glass: rgba(22, 28, 30, 0.68);
+      --outline-glass: rgba(255, 255, 255, 0.12);
+      --outline: #899294;
+      --outline-variant: #3f484a;
+      --accent-glow: rgba(78, 216, 231, 0.24);
+    }
+
+    /* Light Mode: Teal */
+    html[data-mode="light"][data-theme="teal"] {
+      --primary: #006874;
+      --on-primary: #ffffff;
+      --primary-container: #97f0ff;
+      --on-primary-container: #001f24;
+
+      --secondary: #4a6267;
+      --on-secondary: #ffffff;
+      --secondary-container: #cde7ec;
+      --on-secondary-container: #051f23;
+
+      --tertiary: #4e5f7d;
+      --on-tertiary: #ffffff;
+      --tertiary-container: #d7e3ff;
+      --on-tertiary-container: #081c36;
+
+      --surface: #f4fafb;
+      --on-surface: #171d1e;
+      --surface-container-lowest: #ffffff;
+      --surface-container-low: #edf4f5;
+      --surface-container: #e7eef0;
+      --surface-container-high: #e2e9ea;
+      --surface-container-highest: #dce3e4;
+
+      --surface-glass: rgba(255, 255, 255, 0.78);
+      --outline-glass: rgba(0, 0, 0, 0.08);
+      --outline: #6f797b;
+      --outline-variant: #bfc8ca;
+      --accent-glow: rgba(0, 104, 116, 0.18);
+    }
+
+    /* Palette: Purple */
+    html[data-theme="purple"] {
+      --primary: #d0bcff;
+      --on-primary: #381e72;
+      --primary-container: #4f378b;
+      --on-primary-container: #eaddff;
+
+      --secondary: #ccc2dc;
+      --on-secondary: #332d41;
+      --secondary-container: #4a4458;
+      --on-secondary-container: #e8def8;
+
+      --tertiary: #efb8c8;
+      --on-tertiary: #492532;
+      --tertiary-container: #633b48;
+      --on-tertiary-container: #ffd8e4;
+
+      --surface: #141218;
+      --on-surface: #e6e0e9;
+      --surface-container-lowest: #0f0d13;
+      --surface-container-low: #1d1b20;
+      --surface-container: #211f26;
+      --surface-container-high: #2b2930;
+      --surface-container-highest: #36343b;
+
+      --surface-glass: rgba(33, 31, 38, 0.68);
+      --outline-glass: rgba(255, 255, 255, 0.14);
+      --outline: #938f99;
+      --outline-variant: #49454f;
+      --accent-glow: rgba(208, 188, 255, 0.24);
+    }
+
+    html[data-mode="light"][data-theme="purple"] {
+      --primary: #6750a4;
+      --on-primary: #ffffff;
+      --primary-container: #eaddff;
+      --on-primary-container: #21005d;
+
+      --secondary: #625b71;
+      --on-secondary: #ffffff;
+      --secondary-container: #e8def8;
+      --on-secondary-container: #1d192b;
+
+      --tertiary: #7d5260;
+      --on-tertiary: #ffffff;
+      --tertiary-container: #ffd8e4;
+      --on-tertiary-container: #31111d;
+
+      --surface: #fef7ff;
+      --on-surface: #1d1b20;
+      --surface-container-lowest: #ffffff;
+      --surface-container-low: #f7f2fa;
+      --surface-container: #f3edf7;
+      --surface-container-high: #ece6f0;
+      --surface-container-highest: #e6e0e9;
+
+      --surface-glass: rgba(255, 255, 255, 0.80);
+      --outline-glass: rgba(103, 80, 164, 0.12);
+      --outline: #79747e;
+      --outline-variant: #cac4d0;
+      --accent-glow: rgba(103, 80, 164, 0.18);
+    }
+
+    /* Palette: Green */
+    html[data-theme="green"] {
+      --primary: #75dc9e;
+      --on-primary: #00391d;
+      --primary-container: #00522c;
+      --on-primary-container: #92f9b8;
+
+      --secondary: #b6ccb8;
+      --on-secondary: #223527;
+      --secondary-container: #384c3c;
+      --on-secondary-container: #d2e8d4;
+
+      --tertiary: #a1ced9;
+      --on-tertiary: #00363f;
+      --tertiary-container: #1e4d56;
+      --on-tertiary-container: #bceaf5;
+
+      --surface: #0f1511;
+      --on-surface: #dfe4de;
+      --surface-container-lowest: #0a0f0c;
+      --surface-container-low: #171d18;
+      --surface-container: #1b211c;
+      --surface-container-high: #252c26;
+      --surface-container-highest: #303730;
+
+      --surface-glass: rgba(27, 33, 28, 0.68);
+      --outline-glass: rgba(255, 255, 255, 0.12);
+      --outline: #8b938c;
+      --outline-variant: #414942;
+      --accent-glow: rgba(117, 220, 158, 0.24);
+    }
+
+    html[data-mode="light"][data-theme="green"] {
+      --primary: #006d3d;
+      --on-primary: #ffffff;
+      --primary-container: #92f9b8;
+      --on-primary-container: #00210e;
+
+      --secondary: #4f6353;
+      --on-secondary: #ffffff;
+      --secondary-container: #d2e8d4;
+      --on-secondary-container: #0d1f13;
+
+      --tertiary: #37656f;
+      --on-tertiary: #ffffff;
+      --tertiary-container: #bceaf5;
+      --on-tertiary-container: #001f25;
+
+      --surface: #f6fbf4;
+      --on-surface: #181d19;
+      --surface-container-lowest: #ffffff;
+      --surface-container-low: #eff5ee;
+      --surface-container: #e9efe8;
+      --surface-container-high: #e3e9e3;
+      --surface-container-highest: #dee4dd;
+
+      --surface-glass: rgba(255, 255, 255, 0.80);
+      --outline-glass: rgba(0, 109, 61, 0.12);
+      --outline: #717972;
+      --outline-variant: #c1c9c1;
+      --accent-glow: rgba(0, 109, 61, 0.18);
+    }
+
+    /* Palette: Blue */
+    html[data-theme="blue"] {
+      --primary: #9ecaff;
+      --on-primary: #003258;
+      --primary-container: #00497d;
+      --on-primary-container: #d1e4ff;
+
+      --secondary: #bcc7db;
+      --on-secondary: #273141;
+      --secondary-container: #3d4758;
+      --on-secondary-container: #d8e3f8;
+
+      --tertiary: #d7bee4;
+      --on-tertiary: #3b2948;
+      --tertiary-container: #523f5f;
+      --on-tertiary-container: #f3daff;
+
+      --surface: #111418;
+      --on-surface: #e2e2e6;
+      --surface-container-lowest: #0c0e12;
+      --surface-container-low: #1a1c20;
+      --surface-container: #1e2024;
+      --surface-container-high: #282a2f;
+      --surface-container-highest: #33353a;
+
+      --surface-glass: rgba(30, 32, 36, 0.68);
+      --outline-glass: rgba(255, 255, 255, 0.13);
+      --outline: #8c9199;
+      --outline-variant: #43474e;
+      --accent-glow: rgba(158, 202, 255, 0.24);
+    }
+
+    html[data-mode="light"][data-theme="blue"] {
+      --primary: #0061a4;
+      --on-primary: #ffffff;
+      --primary-container: #d1e4ff;
+      --on-primary-container: #001d36;
+
+      --secondary: #535f70;
+      --on-secondary: #ffffff;
+      --secondary-container: #d7e3f7;
+      --on-secondary-container: #101c2b;
+
+      --tertiary: #6b5778;
+      --on-tertiary: #ffffff;
+      --tertiary-container: #f2daff;
+      --on-tertiary-container: #251431;
+
+      --surface: #f8f9ff;
+      --on-surface: #191c20;
+      --surface-container-lowest: #ffffff;
+      --surface-container-low: #f2f3fa;
+      --surface-container: #eceef4;
+      --surface-container-high: #e6e8ee;
+      --surface-container-highest: #e0e2e8;
+
+      --surface-glass: rgba(255, 255, 255, 0.80);
+      --outline-glass: rgba(0, 97, 164, 0.12);
+      --outline: #73777f;
+      --outline-variant: #c3c7cf;
+      --accent-glow: rgba(0, 97, 164, 0.18);
+    }
+
+    /* Palette: Rose */
+    html[data-theme="rose"] {
+      --primary: #ffb1c8;
+      --on-primary: #5e1133;
+      --primary-container: #7b2949;
+      --on-primary-container: #ffd9e2;
+
+      --secondary: #e5bdc6;
+      --on-secondary: #432931;
+      --secondary-container: #5c3f47;
+      --on-secondary-container: #ffd9e2;
+
+      --tertiary: #f3be94;
+      --on-tertiary: #49280b;
+      --tertiary-container: #633d1f;
+      --on-tertiary-container: #ffdcbe;
+
+      --surface: #181113;
+      --on-surface: #efdfdf;
+      --surface-container-lowest: #120c0e;
+      --surface-container-low: #21191b;
+      --surface-container: #251d1f;
+      --surface-container-high: #30272a;
+      --surface-container-highest: #3b3234;
+
+      --surface-glass: rgba(37, 29, 31, 0.68);
+      --outline-glass: rgba(255, 255, 255, 0.14);
+      --outline: #9d8c90;
+      --outline-variant: #524346;
+      --accent-glow: rgba(255, 177, 200, 0.24);
+    }
+
+    html[data-mode="light"][data-theme="rose"] {
+      --primary: #984061;
+      --on-primary: #ffffff;
+      --primary-container: #ffd9e2;
+      --on-primary-container: #3e001d;
+
+      --secondary: #74565f;
+      --on-secondary: #ffffff;
+      --secondary-container: #ffd9e2;
+      --on-secondary-container: #2b151c;
+
+      --tertiary: #82532f;
+      --on-tertiary: #ffffff;
+      --tertiary-container: #ffdcbe;
+      --on-tertiary-container: #2c1200;
+
+      --surface: #fff8f8;
+      --on-surface: #201a1b;
+      --surface-container-lowest: #ffffff;
+      --surface-container-low: #fbf1f1;
+      --surface-container: #f5ebeb;
+      --surface-container-high: #efe5e6;
+      --surface-container-highest: #e9e0e0;
+
+      --surface-glass: rgba(255, 255, 255, 0.80);
+      --outline-glass: rgba(152, 64, 97, 0.12);
+      --outline: #837376;
+      --outline-variant: #d5c2c5;
+      --accent-glow: rgba(152, 64, 97, 0.18);
+    }
+
+    /* ==========================================================
+       MATERIAL 3 VARIABLE FONT MORPHING
+    ========================================================== */
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      transition: font-variation-settings var(--m3-duration-medium) var(--m3-spring-spatial),
+                  transform var(--m3-duration-medium) var(--m3-spring-spatial);
+    }
+
+    /* Dynamic Symbol Morph on hover / focus / active */
+    .group:hover .material-symbols-outlined,
+    .group:focus-within .material-symbols-outlined,
+    button:hover .material-symbols-outlined,
+    .m3-symbol-morph:hover .material-symbols-outlined {
+      font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 200, 'opsz' 24;
+      transform: scale(1.08);
+    }
+
+    /* ==========================================================
+       MATERIAL 3 EXPRESSIVE SHAPES & TENSION MORPHING
+    ========================================================== */
+    .glass-card {
+      background: var(--surface-glass);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid var(--outline-glass);
+      transition: border-radius var(--m3-duration-long) var(--m3-spring-spatial),
+                  transform var(--m3-duration-medium) var(--m3-spring-spatial),
+                  box-shadow var(--m3-duration-medium) var(--m3-easing-effects),
+                  background-color var(--m3-duration-medium) var(--m3-easing-effects);
+    }
+
+    .glass-nav {
+      background: var(--surface-glass);
+      backdrop-filter: blur(32px);
+      -webkit-backdrop-filter: blur(32px);
+      border: 1px solid var(--outline-glass);
+    }
+
+    /* Asymmetric M3 Expressive Tension Shape Transitions */
+    .m3-shape-tension-1 {
+      border-radius: 40px 16px 40px 16px;
+    }
+    .m3-shape-tension-1:hover {
+      border-radius: 16px 44px 16px 44px;
+      transform: translateY(-4px);
+    }
+
+    .m3-shape-tension-2 {
+      border-radius: 18px 44px 18px 44px;
+    }
+    .m3-shape-tension-2:hover {
+      border-radius: 44px 18px 44px 18px;
+      transform: translateY(-4px);
+    }
+
+    .m3-shape-tension-3 {
+      border-radius: 44px 44px 16px 44px;
+    }
+    .m3-shape-tension-3:hover {
+      border-radius: 20px 44px 44px 20px;
+      transform: translateY(-4px);
+    }
+
+    /* ==========================================================
+       M3 EXPRESSIVE CONNECTED BUTTON GROUP WITH SPRING FLEX
+    ========================================================== */
+    .m3-connected-group {
+      display: flex;
+      align-items: center;
+      background: var(--surface-container-high);
+      border-radius: 9999px;
+      padding: 4px;
+      border: 1px solid var(--outline-glass);
+      position: relative;
+    }
+
+    .m3-connected-btn {
+      position: relative;
+      flex: 1 1 0%;
+      text-align: center;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 9999px;
+      color: var(--on-surface);
+      transition: flex-grow var(--m3-duration-long) var(--m3-spring-spatial),
+                  background-color var(--m3-duration-medium) var(--m3-easing-effects),
+                  color var(--m3-duration-short) var(--m3-easing-effects);
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .m3-connected-btn.active {
+      flex-grow: 2;
+      background: var(--primary);
+      color: var(--on-primary);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Spring Rebound on Active Interaction */
+    .m3-spring-press {
+      transition: transform var(--m3-duration-short) var(--m3-spring-fast);
+    }
+    .m3-spring-press:active {
+      transform: scale(0.94);
+    }
+
+    /* Ripple Effect */
+    .m3-ripple-container {
+      position: relative;
+      overflow: hidden;
+    }
+    .m3-ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.35);
+      transform: scale(0);
+      animation: m3-ripple-anim 600ms var(--m3-easing-emphasized);
+      pointer-events: none;
+    }
+    @keyframes m3-ripple-anim {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+
+    /* SVG Expressive Shape Morphing Transition */
+    .shape-morph-path {
+      transition: d 650ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    /* Subtle scrollbar */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: var(--surface); }
+    ::-webkit-scrollbar-thumb { background: var(--outline-variant); border-radius: 999px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--outline); }
+  </style>
+</head>
+<body class="bg-[var(--surface)] text-[var(--on-surface)] font-sans antialiased min-h-screen selection:bg-[var(--primary)] selection:text-[var(--on-primary)] relative overflow-x-hidden transition-colors duration-500">
+
+  <!-- Ambient Backdrop Glow Spots -->
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl h-[560px] bg-gradient-to-b from-[var(--accent-glow)] to-transparent pointer-events-none -z-10 blur-3xl opacity-80"></div>
+  <div class="fixed bottom-0 right-0 w-[420px] h-[420px] bg-[var(--accent-glow)] pointer-events-none -z-10 blur-3xl opacity-35"></div>
+
+  <!-- ========================================================
+       TOP FLOATING FROSTED GLASS NAVIGATION BAR
+  ======================================================== -->
+  <header class="fixed top-4 left-0 right-0 z-40 px-4 sm:px-6">
+    <nav class="max-w-6xl mx-auto glass-nav rounded-full py-2.5 px-4 sm:px-6 shadow-m3-2 flex items-center justify-between transition-all duration-300">
+      
+      <!-- Identity & Handle -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-full bg-[var(--primary)] text-[var(--on-primary)] flex items-center justify-center font-bold font-mono text-lg shadow-sm group-hover:rotate-12 transition-transform duration-300">
+          ド
+        </div>
+        <div>
+          <div class="font-bold tracking-tight text-sm sm:text-base flex items-center gap-1.5">
+            André <span class="text-xs font-jp font-medium text-[var(--primary)] bg-[var(--primary-container)] text-[var(--on-primary-container)] px-2.5 py-0.5 rounded-full">ドヴォルザーク</span>
+          </div>
+          <div class="text-[11px] text-[var(--outline)] font-mono flex items-center gap-1.5 flex-wrap">
+            <span>@fool_in_love</span>
+            <span class="text-[9px] opacity-75 font-jp">· 不倫ラブ</span>
+            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-pink-500/15 text-pink-400 border border-pink-500/30 text-[10px] font-bold">
+              <span>🏳️‍🌈</span>
+              <span>Any / All</span>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Navigation Links with Variable Font Morphing -->
+      <div class="hidden md:flex items-center gap-1 bg-[var(--surface-container-low)]/80 p-1.5 rounded-full border border-[var(--outline-glass)]">
+        <a href="#weather" class="group px-4 py-1.5 text-xs font-semibold rounded-full hover:bg-[var(--surface-container-high)] transition-all flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-sm text-[var(--primary)]">location_on</span>
+          <span>Four Corners</span>
+        </a>
+        <a href="#expertise" class="group px-4 py-1.5 text-xs font-semibold rounded-full hover:bg-[var(--surface-container-high)] transition-all flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-sm text-[var(--secondary)]">cyclone</span>
+          <span>Meteorology</span>
+        </a>
+        <a href="#studio" class="group px-4 py-1.5 text-xs font-semibold rounded-full hover:bg-[var(--surface-container-high)] transition-all flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-sm text-[var(--tertiary)]">cassette</span>
+          <span>Vaporwave</span>
+        </a>
+        <a href="#identity" class="group px-4 py-1.5 text-xs font-semibold rounded-full hover:bg-[var(--surface-container-high)] transition-all flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-sm text-pink-400">favorite</span>
+          <span>Identity</span>
+        </a>
+      </div>
+
+      <!-- Action & Palette Switcher -->
+      <div class="flex items-center gap-2">
+        
+        <!-- Palette Switcher Menu (Generic Color Names) -->
+        <div class="relative group">
+          <button id="themeMenuBtn" title="Select Color Theme" class="p-2.5 rounded-full hover:bg-[var(--surface-container-high)] text-[var(--on-surface)] m3-spring-press flex items-center justify-center">
+            <span class="material-symbols-outlined text-xl">palette</span>
+          </button>
+          
+          <!-- Dropdown Popover with Generic Color Names -->
+          <div class="absolute right-0 mt-2 w-44 py-2 bg-[var(--surface-container-high)] border border-[var(--outline-variant)] rounded-2xl shadow-m3-3 hidden group-hover:block hover:block z-50 backdrop-blur-2xl">
+            <div class="px-3 py-1 text-[11px] font-mono text-[var(--outline)] uppercase tracking-wider">Palette</div>
+            <button onclick="setTheme('teal')" class="w-full text-left px-3 py-2 text-xs flex items-center gap-2.5 hover:bg-[var(--surface-container-highest)] transition-colors">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#4ed8e7]"></span> Teal
+            </button>
+            <button onclick="setTheme('purple')" class="w-full text-left px-3 py-2 text-xs flex items-center gap-2.5 hover:bg-[var(--surface-container-highest)] transition-colors">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#d0bcff]"></span> Purple
+            </button>
+            <button onclick="setTheme('green')" class="w-full text-left px-3 py-2 text-xs flex items-center gap-2.5 hover:bg-[var(--surface-container-highest)] transition-colors">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#75dc9e]"></span> Green
+            </button>
+            <button onclick="setTheme('blue')" class="w-full text-left px-3 py-2 text-xs flex items-center gap-2.5 hover:bg-[var(--surface-container-highest)] transition-colors">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#9ecaff]"></span> Blue
+            </button>
+            <button onclick="setTheme('rose')" class="w-full text-left px-3 py-2 text-xs flex items-center gap-2.5 hover:bg-[var(--surface-container-highest)] transition-colors">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#ffb1c8]"></span> Rose
+            </button>
+          </div>
+        </div>
+
+        <!-- Light / Dark Mode Toggle -->
+        <button id="modeToggleBtn" title="Toggle Light/Dark Mode" class="p-2.5 rounded-full hover:bg-[var(--surface-container-high)] text-[var(--on-surface)] m3-spring-press flex items-center justify-center">
+          <span id="modeIcon" class="material-symbols-outlined text-xl">light_mode</span>
+        </button>
+
+        <!-- Quick Terminal Trigger -->
+        <button onclick="toggleTerminalModal()" class="hidden sm:flex items-center gap-1.5 bg-[var(--primary)] text-[var(--on-primary)] px-4 py-2 rounded-full text-xs font-bold tracking-wide shadow-sm hover:brightness-110 m3-spring-press transition-all">
+          <span class="material-symbols-outlined text-sm">terminal</span>
+          <span>~/cachyos</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 pt-28 pb-24 space-y-20">
+
+    <!-- ========================================================
+         HERO SECTION: EXPRESSIVE HEADLINE, SHAPE-MORPHING & GLANCE
+    ======================================================== -->
+    <section id="hero" class="relative pt-6 sm:pt-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Left: Text, Pride Badges, and Connected Segmented Focus -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <div class="flex flex-wrap items-center gap-2.5">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card text-xs font-mono font-medium text-[var(--primary)] shadow-sm">
+              <span class="material-symbols-outlined text-sm text-[var(--primary)]">cyclone</span>
+              <span>TROPICAL METEOROLOGY · VAPORWAVE · CACHYOS</span>
+            </div>
+            
+            <!-- Rainbow Pride & Pronouns Chip -->
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-card text-xs font-mono font-bold shadow-sm border border-white/20 bg-gradient-to-r from-red-500/15 via-amber-500/15 via-emerald-500/15 via-blue-500/15 to-purple-500/15 text-[var(--on-surface)]">
+              <span class="text-sm">🏳️‍🌈</span>
+              <span class="bg-gradient-to-r from-rose-400 via-amber-300 via-emerald-400 via-sky-400 to-purple-400 bg-clip-text text-transparent">PROUDLY GAY</span>
+              <span class="text-[var(--outline)]">·</span>
+              <span class="text-[var(--primary)] font-medium">Pronouns: Any / All</span>
+            </div>
+          </div>
+
+          <!-- Headline -->
+          <div class="space-y-2">
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.08]">
+              André
+              <span class="block text-2xl sm:text-3xl md:text-4xl font-jp font-semibold text-[var(--primary)] mt-1.5">
+                ドヴォルザーク <span class="text-sm sm:text-base font-mono font-normal opacity-70 tracking-widest">// DVORAK</span>
+              </span>
+            </h1>
+            <p class="text-base sm:text-lg text-[var(--outline)] leading-relaxed max-w-xl font-normal pt-2">
+              Proudly gay atmospheric scientist and electronic music producer. Deep expertise in tropical cyclogenesis, Dvorak satellite analysis, and atmospheric thermodynamics, combined with nostalgic late-night signalwave jazz on CachyOS Linux.
+            </p>
+          </div>
+
+          <!-- M3 Expressive Connected Button Group: Interactive Focus Switcher -->
+          <div class="pt-2 max-w-md">
+            <div class="text-[11px] font-mono text-[var(--outline)] uppercase tracking-wider mb-2 flex items-center gap-1.5">
+              <span class="material-symbols-outlined text-xs text-[var(--primary)]">motion_mode</span>
+              M3 Expressive Focus Channel:
+            </div>
+            <div class="m3-connected-group" id="heroButtonGroup">
+              <button onclick="setFocusTab(0, this)" class="m3-connected-btn active">
+                <span class="flex items-center justify-center gap-1.5">
+                  <span class="material-symbols-outlined text-sm">cyclone</span> Tropical Met
+                </span>
+              </button>
+              <button onclick="setFocusTab(1, this)" class="m3-connected-btn">
+                <span class="flex items-center justify-center gap-1.5">
+                  <span class="material-symbols-outlined text-sm">music_note</span> Signalwave
+                </span>
+              </button>
+              <button onclick="setFocusTab(2, this)" class="m3-connected-btn">
+                <span class="flex items-center justify-center gap-1.5">
+                  <span class="material-symbols-outlined text-sm">terminal</span> Linux Audio
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            <a href="#weather" class="flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--primary)] text-[var(--on-primary)] font-bold text-sm shadow-m3-1 hover:brightness-105 m3-spring-press transition-all">
+              <span class="material-symbols-outlined text-lg">partly_cloudy_day</span>
+              <span>Live Four Corners Weather</span>
+            </a>
+            <a href="#studio" class="flex items-center gap-2 px-6 py-3 rounded-full bg-[var(--surface-container-high)] text-[var(--on-surface)] font-semibold text-sm border border-[var(--outline-glass)] hover:bg-[var(--surface-container-highest)] m3-spring-press transition-all">
+              <span class="material-symbols-outlined text-lg text-[var(--tertiary)]">play_circle</span>
+              <span>Play Vaporwave Tape</span>
+            </a>
+            <button onclick="toggleTerminalModal()" class="flex items-center gap-2 px-5 py-3 rounded-full border border-[var(--outline)] text-[var(--on-surface)] font-mono text-xs hover:bg-[var(--surface-container-high)] m3-spring-press transition-all">
+              <span class="material-symbols-outlined text-base text-[var(--primary)]">terminal</span>
+              <span>neofetch</span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Right: Official Material 3 Expressive Shape-Morphing & Profile Glance Card -->
+        <div class="lg:col-span-5">
+          <div class="relative glass-card rounded-[38px] p-6 sm:p-7 shadow-m3-3 overflow-hidden glow-radial m3-shape-tension-1">
+            
+            <!-- Card Header with Dynamic Shape Morphing Avatar -->
+            <div class="flex items-center justify-between pb-5 border-b border-[var(--outline-glass)]">
+              <div class="flex items-center gap-3">
+                
+                <!-- Interactive Material 3 Expressive Shape-Morphing SVG Component -->
+                <button onclick="cycleMorphShape()" title="Click to morph Material 3 Expressive shape" class="relative w-14 h-14 flex items-center justify-center group/morph m3-spring-press">
+                  <svg id="m3MorphSvg" class="w-14 h-14 drop-shadow-md text-[var(--primary)]" viewBox="0 0 100 100">
+                    <!-- Smooth Morphing Path using CSS d transition -->
+                    <path id="morphPath" class="shape-morph-path fill-current" 
+                          d="M50,0 C65,0 80,10 88,22 C98,35 100,50 96,65 C90,82 78,95 60,99 C45,101 28,96 17,85 C4,72 0,55 2,38 C5,20 20,4 38,1 Z" />
+                  </svg>
+                  <span class="absolute font-bold font-mono text-xl text-[var(--on-primary)] pointer-events-none select-none">
+                    ド
+                  </span>
+                </button>
+
+                <div>
+                  <div class="flex items-center gap-1.5 font-mono text-xs text-[var(--primary)] font-bold">
+                    <span class="w-2 h-2 rounded-full bg-[var(--primary)] animate-pulse"></span>
+                    <span>SHAPE MORPH ACTIVE</span>
+                  </div>
+                  <div id="morphShapeLabel" class="text-[11px] font-mono text-[var(--outline)]">Shape: 12-Pt Scallop</div>
+                </div>
+              </div>
+
+              <span class="text-[11px] font-mono bg-[var(--surface-container-highest)] px-2.5 py-1 rounded-full text-[var(--outline)]">
+                28.34°N, 81.64°W
+              </span>
+            </div>
+
+            <!-- Profile Overview Highlight -->
+            <div class="py-5 space-y-4">
+              <div>
+                <h3 class="text-lg font-bold">André · ドヴォルザーク</h3>
+                <p class="text-xs text-[var(--outline)] font-mono">Handle honors Vernon Dvorak (Dvorak Technique)</p>
+                <p class="text-xs text-[var(--primary)] font-mono">Quote: <span class="italic">"fool in love"</span> (不倫ラブ)</p>
+              </div>
+
+              <!-- Quote Pill with Frosted Glass -->
+              <div class="p-3.5 rounded-2xl bg-[var(--surface-container-lowest)]/60 border border-[var(--outline-glass)] text-xs text-[var(--outline)] leading-relaxed italic">
+                "Finding harmony between cyclonic pressure gradients on GOES-19 imagery and lush 9th chords drifting through late-night WeatherStar broadcasts."
+              </div>
+
+              <!-- Mini Attributes with Variable Font Icons -->
+              <div class="space-y-2.5 pt-1 font-mono text-xs">
+                <div class="flex justify-between items-center text-xs">
+                  <span class="text-[var(--outline)] flex items-center gap-1">
+                    <span class="material-symbols-outlined text-xs text-pink-400">favorite</span> Identity:
+                  </span>
+                  <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-gradient-to-r from-red-500/20 via-yellow-500/20 to-purple-500/20 border border-white/10 text-[var(--on-surface)] font-bold">
+                    <span>🏳️‍🌈 Proudly Gay</span>
+                    <span class="text-[var(--primary)] font-normal">(Any/All)</span>
+                  </span>
+                </div>
+                <div class="flex justify-between text-xs items-center">
+                  <span class="text-[var(--outline)] flex items-center gap-1">
+                    <span class="material-symbols-outlined text-xs text-amber-300">album</span> All-Time #1 Album:
+                  </span>
+                  <span class="text-amber-300 font-bold flex items-center gap-1">
+                    <span>👑 Anri · BOOGIE WOOGIE MAINLAND (1988)</span>
+                  </span>
+                </div>
+                <div class="flex justify-between text-xs items-center">
+                  <span class="text-[var(--outline)] flex items-center gap-1">
+                    <span class="material-symbols-outlined text-xs text-[var(--secondary)]">music_note</span> Primary Axe:
+                  </span>
+                  <span class="text-[var(--on-surface)] font-medium">Alto Sax &amp; Serum Synthesizer</span>
+                </div>
+                <div class="flex justify-between text-xs items-center">
+                  <span class="text-[var(--outline)] flex items-center gap-1">
+                    <span class="material-symbols-outlined text-xs text-[var(--tertiary)]">pets</span> Companion:
+                  </span>
+                  <span class="text-[var(--tertiary)] font-medium">Lucky (Tuxedo Cat 🐱)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card Footer -->
+            <div class="pt-3 border-t border-[var(--outline-glass)] flex items-center justify-between text-xs font-mono text-[var(--outline)]">
+              <span class="flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm text-[var(--primary)]">cloud</span>
+                Four Corners, FL
+              </span>
+              <a href="#weather" class="text-[var(--primary)] hover:underline flex items-center gap-0.5 group">
+                View live data <span class="material-symbols-outlined text-xs group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         FOUR CORNERS, FL: REAL-TIME PUBLIC WEATHER API & CLOCK
+    ======================================================== -->
+    <section id="weather" class="space-y-6 scroll-mt-24">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[var(--primary)] mb-1">
+            <span class="material-symbols-outlined text-base">sensors</span>
+            Real-Time Meteorological Observation
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Four Corners, Florida</h2>
+          <p class="text-sm text-[var(--outline)] max-w-xl mt-1">
+            Live atmospheric observations powered directly by the Open-Meteo Public Weather API, synchronized with Four Corners local Eastern Time.
+          </p>
+        </div>
+
+        <!-- Live Status & Refresh with Spring Icon Spin -->
+        <div class="flex items-center gap-3">
+          <div class="flex items-center gap-1.5 px-3 py-1 rounded-full glass-card text-xs font-mono text-emerald-400">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+            <span>API ONLINE</span>
+          </div>
+          <button onclick="fetchFourCornersWeather()" title="Refresh Weather Data" class="p-2.5 rounded-full glass-card hover:bg-[var(--surface-container-high)] text-[var(--on-surface)] m3-spring-press flex items-center justify-center">
+            <span id="weatherRefreshIcon" class="material-symbols-outlined text-lg">refresh</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Weather Bento Display -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <!-- Large Weather Display Card -->
+        <div class="lg:col-span-8 glass-card rounded-[38px] p-6 sm:p-8 flex flex-col justify-between shadow-m3-2 relative overflow-hidden m3-shape-tension-2">
+          
+          <!-- Top Row: Location & Live Clock -->
+          <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[var(--outline-glass)]">
+            <div>
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-[var(--primary)] text-xl">pin_drop</span>
+                <span class="font-bold text-lg">Four Corners, Osceola / Lake / Polk / Orange Co.</span>
+              </div>
+              <div class="text-xs font-mono text-[var(--outline)] mt-0.5">
+                Lat: 28.3456°N · Lon: -81.6425°W · Elev: ~42m ASL
+              </div>
+            </div>
+
+            <!-- Live Ticking Clock (America/New_York) -->
+            <div class="text-right">
+              <div id="flLocalTime" class="text-2xl sm:text-3xl font-bold font-mono text-[var(--primary)] tracking-tight">
+                --:--:-- --
+              </div>
+              <div id="flLocalDate" class="text-xs font-mono text-[var(--outline)]">
+                Syncing local time...
+              </div>
+            </div>
+          </div>
+
+          <!-- Center Row: Real Temp & Weather Condition with Variable Font Icon -->
+          <div class="py-8 grid grid-cols-1 sm:grid-cols-2 gap-6 items-center">
+            <div class="flex items-center gap-5">
+              <!-- Dynamic Weather Icon with Spring Pulse -->
+              <div id="weatherIconBg" class="w-20 h-20 sm:w-24 sm:h-24 rounded-3xl bg-[var(--primary-container)] text-[var(--on-primary-container)] flex items-center justify-center shadow-m3-1 shrink-0 group hover:rotate-6 transition-transform">
+                <span id="weatherSymbol" class="material-symbols-outlined text-4xl sm:text-5xl">cloud_sync</span>
+              </div>
+              <div>
+                <div class="flex items-baseline">
+                  <span id="weatherTemp" class="text-5xl sm:text-6xl font-extrabold tracking-tight">--</span>
+                  <span class="text-2xl sm:text-3xl font-light text-[var(--outline)] ml-1">°F</span>
+                </div>
+                <div id="weatherConditionDesc" class="text-sm sm:text-base font-semibold text-[var(--primary)] mt-1">
+                  Fetching atmospheric data...
+                </div>
+                <div class="text-xs text-[var(--outline)] font-mono mt-0.5">
+                  Apparent: <span id="weatherApparentTemp" class="text-[var(--on-surface)] font-bold">--°F</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Meteorological Synopsis Box -->
+            <div class="p-4 rounded-2xl bg-[var(--surface-container-lowest)]/50 border border-[var(--outline-glass)] text-xs space-y-2">
+              <div class="font-mono font-bold text-[var(--primary)] flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-sm">thunderstorm</span>
+                CENTRAL FLORIDA SYNOPTIC REGIME
+              </div>
+              <p class="text-[var(--outline)] leading-relaxed">
+                Subject to Atlantic and Gulf sea breeze collision boundaries, subtropical ridge steering currents, and high precipitable water (PWAT) convective showers.
+              </p>
+            </div>
+          </div>
+
+          <!-- Bottom Row: Metrics Grid -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-6 border-t border-[var(--outline-glass)]">
+            <div class="p-3.5 rounded-2xl bg-[var(--surface-container-high)]/60 border border-[var(--outline-glass)] group hover:-translate-y-1 transition-transform">
+              <div class="text-[11px] font-mono text-[var(--outline)] flex items-center gap-1">
+                <span class="material-symbols-outlined text-xs text-[var(--secondary)]">humidity_percentage</span>
+                Humidity
+              </div>
+              <div id="weatherHumidity" class="text-lg font-bold font-mono mt-0.5 text-[var(--on-surface)]">--%</div>
+            </div>
+
+            <div class="p-3.5 rounded-2xl bg-[var(--surface-container-high)]/60 border border-[var(--outline-glass)] group hover:-translate-y-1 transition-transform">
+              <div class="text-[11px] font-mono text-[var(--outline)] flex items-center gap-1">
+                <span class="material-symbols-outlined text-xs text-[var(--secondary)]">air</span>
+                Wind Speed
+              </div>
+              <div id="weatherWindSpeed" class="text-lg font-bold font-mono mt-0.5 text-[var(--on-surface)]">-- mph</div>
+            </div>
+
+            <div class="p-3.5 rounded-2xl bg-[var(--surface-container-high)]/60 border border-[var(--outline-glass)] col-span-2 sm:col-span-1 group hover:-translate-y-1 transition-transform">
+              <div class="text-[11px] font-mono text-[var(--outline)] flex items-center gap-1">
+                <span class="material-symbols-outlined text-xs text-[var(--tertiary)]">schedule</span>
+                API Last Polled
+              </div>
+              <div id="weatherLastSync" class="text-xs font-bold font-mono mt-1 text-[var(--tertiary)]">Awaiting data</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Four Corners Geographic & Tropical Station Card -->
+        <div class="lg:col-span-4 glass-card rounded-[38px] p-6 flex flex-col justify-between shadow-m3-2 space-y-6 m3-shape-tension-3">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-[var(--primary)] uppercase tracking-wider font-bold">Atmospheric Node</span>
+              <span class="material-symbols-outlined text-lg text-[var(--primary)]">radar</span>
+            </div>
+            <h3 class="text-xl font-bold">Subtropical Convergence</h3>
+            <p class="text-xs text-[var(--outline)] leading-relaxed">
+              Situated right at the quadripoint of Lake, Orange, Osceola, and Polk counties in Central Florida. A prime vantage point for studying Atlantic tropical cyclone feeder bands, mesoscale convective vortices (MCVs), and summer thunderstorm gust fronts.
+            </p>
+          </div>
+
+          <!-- Station Quick Data -->
+          <div class="space-y-2.5 font-mono text-xs border-y border-[var(--outline-glass)] py-4">
+            <div class="flex justify-between">
+              <span class="text-[var(--outline)]">Radar Coverage:</span>
+              <span class="text-[var(--on-surface)] font-bold">KMLB (Melbourne) / KTBW (Tampa)</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-[var(--outline)]">Primary Basin:</span>
+              <span class="text-[var(--primary)] font-bold">North Atlantic Tropical Basin</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-[var(--outline)]">Climate Zone:</span>
+              <span class="text-[var(--on-surface)] font-bold">Humid Subtropical (Cfa)</span>
+            </div>
+          </div>
+
+          <div class="text-[11px] font-mono text-[var(--outline)] flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            Open-Meteo JSON Endpoints · No API Key Required
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         TROPICAL METEOROLOGY & ATMOSPHERIC SCIENCE EXPERTISE
+    ======================================================== -->
+    <section id="expertise" class="space-y-6 scroll-mt-24">
+      
+      <div>
+        <div class="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[var(--secondary)] mb-1">
+          <span class="material-symbols-outlined text-base">cyclone</span>
+          Scientific Focus & Analytical Domains
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Tropical Meteorology & Remote Sensing</h2>
+        <p class="text-sm text-[var(--outline)] max-w-2xl mt-1">
+          Rigorous observational analysis and theoretical meteorology: from satellite pattern recognition of tropical cyclones to thermodynamic soundings and multi-radar dual-polarization interpretation.
+        </p>
+      </div>
+
+      <!-- Bento Cards Grid for Genuine Expertise with Tension Morphing -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+        <!-- Card 1: Dvorak Technique & Cyclogenesis -->
+        <div class="glass-card m3-shape-tension-1 p-6 sm:p-8 flex flex-col justify-between shadow-m3-1 group">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-[var(--primary-container)] text-[var(--on-primary-container)] flex items-center justify-center group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-2xl">cyclone</span>
+            </div>
+            <h3 class="text-xl font-bold tracking-tight">Tropical Cyclogenesis & Dvorak Technique</h3>
+            <p class="text-xs sm:text-sm text-[var(--outline)] leading-relaxed">
+              Named after pioneer Vernon Dvorak (whom my handle honors), this methodology utilizes visible and infrared satellite imagery to estimate tropical cyclone intensity ($T$-numbers and Current Intensity $CI$). Deep understanding of Central Dense Overcast (CDO) structures, curved band patterns, eyewall replacement cycles (ERC), and rapid intensification (RI) indicators.
+            </p>
+          </div>
+          <div class="pt-6 flex flex-wrap gap-1.5 font-mono text-[11px]">
+            <span class="px-2.5 py-1 rounded-full bg-[var(--surface-container-highest)] text-[var(--primary)]">Dvorak T-Numbers</span>
+            <span class="px-2.5 py-1 rounded-full bg-[var(--surface-container-highest)] text-[var(--outline)]">GOES-19 IR 10.3µm</span>
+            <span class="px-2.5 py-1 rounded-full bg-[var(--surface-container-highest)] text-[var(--outline)]">Rapid Intensification</span>
+          </div>
+        </div>
+
+        <!-- Card 2: NEXRAD WSR-88D & Dual-Pol Radar -->
+        <div class="glass-card m3-shape-tension-2 p-6 sm:p-8 flex flex-col justify-between shadow-m3-1 group">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-[var(--secondary-container)] text-[var(--on-secondary-container)] flex items-center justify-center group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-2xl">radar</span>
+            </div>
+            <h3 class="text-xl font-bold tracking-tight">NEXRAD Level II/III Radar Analysis</h3>
+            <p class="text-xs sm:text-sm text-[var(--outline)] leading-relaxed">
+              Interpretation of base reflectivity ($Z$), storm-relative velocity ($V$), and dual-polarization products. Proficient in distinguishing non-meteorological scatterers using Correlation Coefficient ($\rho_{HV}$), Differential Reflectivity ($Z_{DR}$), and detecting tornadic debris signatures (TDS) and mesocyclonic shear velocity couplets.
+            </p>
+          </div>
+          <div class="pt-6 flex flex-wrap gap-1.5 font-mono text-[11px]">
+            <span class="px-2.5 py-1 rounded-full bg-[var(--surface-container-highest)] text-[var(--secondary)]">WSR-88D Dual-Pol</span>
+            <span class="px-2.5 py-1 rounded-full bg-[var(--surface-container-highest)] text-[var(--outline)]">GRLevel3 / Gibson</span>
+            <span class="px-2.5 py-1 rounded-full bg-[var(--surface-container-highest)] text-[var(--outline)]">TDS & Velocity Couplets</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Thermodynamic Soundings & Severe Convection -->
+        <div class="glass-card m3-shape-tension-3 p-6 sm:p-8 flex flex-col justify-between shadow-m3-1 group md:col-span-2 lg:col-span-1">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-[var(--tertiary-container)] text-[var(--on-tertiary-container)] flex items-center justify-center group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-2xl">ssid_chart</span>
+            </div>
+            <h3 class="text-xl font-bold tracking-tight">Thermodynamic Soundings & Skew-T</h3>
+            <p class="text-xs sm:text-sm text-[var(--outline)] leading-relaxed">
+              Comprehensive decoding of raw radiosonde balloon launches on Skew-T Log-P diagrams. Calculation of convective parameters including Surface-Based and Most-Unstable CAPE ($J/kg$), Lifted Condensation Level (LCL), Downdraft CAPE (DCAPE), and $0-1km$ / $0-3km$ Storm-Relative Helicity (SRH).
+            </p>
+          </div>
+          <div class="pt-6 flex flex-wrap gap-1.5 font-mono text-[11px]">
+            <span class="px-2.5 py-1 rounded-full bg-[var(--surface-container-highest)] text-[var(--tertiary)]">Skew-T Log-P</span>
+            <span class="px-2.5 py-1 rounded-full bg-[var(--surface-container-highest)] text-[var(--outline)]">CAPE & SRH Kinematics</span>
+            <span class="px-2.5 py-1 rounded-full bg-[var(--surface-container-highest)] text-[var(--outline)]">Hodograph Curvature</span>
+          </div>
+        </div>
+
+        <!-- Card 4: Global Teleconnections & Tropical Waves -->
+        <div class="glass-card rounded-[38px] p-6 sm:p-8 md:col-span-2 lg:col-span-3 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-m3-1 group">
+          <div class="flex items-center gap-5">
+            <div class="w-14 h-14 rounded-2xl bg-[var(--primary)] text-[var(--on-primary)] flex items-center justify-center shrink-0 group-hover:rotate-12 transition-transform">
+              <span class="material-symbols-outlined text-3xl">public</span>
+            </div>
+            <div>
+              <h4 class="text-lg font-bold">Synoptic Teleconnections & Tropical Waves</h4>
+              <p class="text-xs sm:text-sm text-[var(--outline)] mt-1 max-w-3xl leading-relaxed">
+                Analyzing the propagation of the Madden-Julian Oscillation (MJO) velocity potential anomalies at 200 hPa, equatorial Kelvin waves, African Easterly Waves (AEWs), and El Niño-Southern Oscillation (ENSO) vertical wind shear regimes across the Atlantic Main Development Region (MDR).
+              </p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2 shrink-0">
+            <span class="px-3.5 py-1.5 rounded-full bg-[var(--surface-container-high)] text-xs font-mono text-[var(--primary)] border border-[var(--outline-glass)]">
+              MJO & ENSO Dynamics
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         VAPORWAVE & SIGNALWAVE AUDIO SYNTHESIZER
+    ======================================================== -->
+    <section id="studio" class="space-y-6 scroll-mt-24">
+      
+      <!-- Section Title -->
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[var(--tertiary)] mb-1">
+            <span class="material-symbols-outlined text-base">graphic_eq</span>
+            Nostalgic Signalwave Audio Synthesizer
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">National Forecast (1988 Broadcast Ver.)</h2>
+          <p class="text-sm text-[var(--outline)] max-w-xl mt-1">
+            Authentic Web Audio vaporwave synthesizer: lush jazz 7th & 9th chords, analog tape wow-and-flutter pitch drift, warm lowpass ladder filtering, and ambient delay.
+          </p>
+        </div>
+
+        <div class="flex items-center gap-2">
+          <span class="px-3 py-1 rounded-full glass-card text-[var(--on-surface)] text-xs font-mono">
+            Ableton Live 12 · Xfer Serum · Cassette IV
+          </span>
+        </div>
+      </div>
+
+      <!-- Studio Cassette & Synthesizer Player Card -->
+      <div class="glass-card rounded-[38px] p-6 sm:p-8 shadow-m3-3 relative overflow-hidden">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <!-- Left: Cassette Player Graphic with Spinning Reels -->
+          <div class="lg:col-span-5 bg-[var(--surface-container-lowest)]/80 border border-[var(--outline-glass)] rounded-3xl p-5 relative overflow-hidden flex flex-col justify-between shadow-inner">
+            
+            <!-- Cassette Header -->
+            <div class="flex items-center justify-between pb-3 border-b border-[var(--outline-glass)] font-mono text-xs">
+              <span class="text-[var(--tertiary)] font-bold tracking-wider">C-60 CHROME TAPE</span>
+              <span class="text-[10px] bg-[var(--surface-container-high)] px-2 py-0.5 rounded-full text-[var(--outline)]">VAPORWAVE / JAZZ</span>
+            </div>
+
+            <!-- Tape Window with Reels -->
+            <div class="my-6 py-6 px-4 bg-[#0c090e] rounded-2xl border border-[var(--outline-glass)] relative flex items-center justify-around">
+              
+              <!-- Left Tape Reel -->
+              <div id="tapeReelLeft" class="w-16 h-16 rounded-full border-4 border-[var(--tertiary)]/50 bg-zinc-900 flex items-center justify-center relative transition-transform duration-700">
+                <div class="w-6 h-6 rounded-full bg-zinc-800 border-2 border-white/20 flex items-center justify-center">
+                  <div class="w-1.5 h-6 bg-zinc-600 rotate-0 absolute"></div>
+                  <div class="w-1.5 h-6 bg-zinc-600 rotate-90 absolute"></div>
+                </div>
+              </div>
+
+              <!-- Center Tape Label -->
+              <div class="flex flex-col items-center gap-1 font-mono text-[10px] text-[var(--outline)] text-center">
+                <span class="bg-black/90 px-2 py-1 rounded text-[var(--tertiary)] font-bold">WEATHERSTAR 4000</span>
+                <span>DOLBY B NOISE REDUCTION</span>
+              </div>
+
+              <!-- Right Tape Reel -->
+              <div id="tapeReelRight" class="w-16 h-16 rounded-full border-4 border-[var(--tertiary)]/50 bg-zinc-900 flex items-center justify-center relative transition-transform duration-700">
+                <div class="w-6 h-6 rounded-full bg-zinc-800 border-2 border-white/20 flex items-center justify-center">
+                  <div class="w-1.5 h-6 bg-zinc-600 rotate-45 absolute"></div>
+                  <div class="w-1.5 h-6 bg-zinc-600 -rotate-45 absolute"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Audio Format Specs -->
+            <div class="flex items-center justify-between font-mono text-[11px] text-[var(--outline)] pt-2">
+              <span>Web Audio Synth · 48.0 kHz</span>
+              <span class="text-[var(--primary)] font-bold">STEREO DELAY ACTIVE</span>
+            </div>
+          </div>
+
+          <!-- Right: Visualizer & Synthesizer Controls -->
+          <div class="lg:col-span-7 space-y-5">
+            
+            <!-- Track Info -->
+            <div>
+              <div class="inline-block text-[11px] font-mono uppercase tracking-wider text-[var(--tertiary)] bg-[var(--tertiary-container)]/50 px-2.5 py-1 rounded-full mb-1">
+                SYNTHESIZER BROADCAST
+              </div>
+              <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight">National Forecast (1988 Broadcast Ver.)</h3>
+              <p class="text-xs sm:text-sm text-[var(--outline)] mt-1 font-mono">
+                Artist: André (ドヴォルザーク) · Album: Mesoscale Soundscapes
+              </p>
+            </div>
+
+            <!-- Frequency Visualizer Canvas -->
+            <div class="w-full h-24 bg-[var(--surface-container-lowest)]/80 border border-[var(--outline-glass)] rounded-2xl overflow-hidden relative p-2 flex items-center">
+              <canvas id="vaporVisualizerCanvas" class="w-full h-full block"></canvas>
+              
+              <!-- Subtle Idle Notice -->
+              <div id="vaporIdleNotice" class="absolute inset-0 flex items-center justify-center font-mono text-xs text-[var(--outline)] pointer-events-none bg-[var(--surface-container-lowest)]/70">
+                <span class="flex items-center gap-1.5 text-center px-4">
+                  <span class="material-symbols-outlined text-sm text-[var(--primary)]">play_circle</span> Press Play to generate live analog vaporwave synth chords
+                </span>
+              </div>
+            </div>
+
+            <!-- Scrubber Timeline -->
+            <div class="space-y-1">
+              <div class="relative w-full h-2 bg-[var(--surface-container-highest)] rounded-full overflow-hidden cursor-pointer" onclick="handleScrubberClick(event)">
+                <div id="vaporProgressFill" class="h-full bg-[var(--primary)] rounded-full w-0 transition-all duration-300"></div>
+              </div>
+              <div class="flex justify-between font-mono text-[11px] text-[var(--outline)]">
+                <span id="vaporCurrentTime">0:00</span>
+                <span>3:48</span>
+              </div>
+            </div>
+
+            <!-- Controls: Play, Chords, and Analog Knobs -->
+            <div class="space-y-4 pt-1">
+              <div class="flex flex-wrap items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                  
+                  <!-- Main Play/Pause Button with Spring Rebound -->
+                  <button id="vaporPlayBtn" onclick="toggleVaporwaveSynthesizer()" class="w-14 h-14 rounded-full bg-[var(--primary)] text-[var(--on-primary)] flex items-center justify-center shadow-m3-2 m3-spring-press hover:scale-105 active:scale-95 transition-transform">
+                    <span id="vaporPlayIcon" class="material-symbols-outlined text-3xl">play_arrow</span>
+                  </button>
+
+                  <!-- Chord Progression Switcher -->
+                  <button onclick="cycleVaporProgression()" class="px-4 py-2.5 rounded-full glass-card hover:bg-[var(--surface-container-high)] border border-[var(--outline-glass)] font-mono text-xs flex items-center gap-1.5 m3-spring-press transition-all" title="Switch Chord Progression">
+                    <span class="material-symbols-outlined text-sm">shuffle</span>
+                    <span id="vaporProgName">Progression: City Pop 9ths</span>
+                  </button>
+                </div>
+
+                <!-- Master Volume Slider -->
+                <div class="flex items-center gap-2 font-mono text-xs text-[var(--outline)]">
+                  <span class="material-symbols-outlined text-base">volume_down</span>
+                  <input id="vaporVolumeSlider" type="range" min="0" max="1" step="0.05" value="0.75" oninput="setVaporVolume(this.value)" class="w-24 accent-[var(--primary)] cursor-pointer">
+                  <span class="material-symbols-outlined text-base">volume_up</span>
+                </div>
+              </div>
+
+              <!-- Analog Tape Filters (Warmth & Flutter Depth) -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 font-mono text-xs">
+                <div class="p-3 rounded-2xl bg-[var(--surface-container-high)]/40 border border-[var(--outline-glass)] flex items-center justify-between gap-2">
+                  <span class="text-[var(--outline)] flex items-center gap-1">
+                    <span class="material-symbols-outlined text-sm text-[var(--tertiary)]">tune</span> Tape Warmth:
+                  </span>
+                  <input id="vaporWarmthSlider" type="range" min="600" max="3200" step="50" value="1200" oninput="setVaporFilter(this.value)" class="w-28 accent-[var(--tertiary)] cursor-pointer">
+                </div>
+
+                <div class="p-3 rounded-2xl bg-[var(--surface-container-high)]/40 border border-[var(--outline-glass)] flex items-center justify-between gap-2">
+                  <span class="text-[var(--outline)] flex items-center gap-1">
+                    <span class="material-symbols-outlined text-sm text-[var(--secondary)]">waves</span> Tape Flutter:
+                  </span>
+                  <input id="vaporFlutterSlider" type="range" min="0" max="15" step="1" value="7" oninput="setVaporFlutter(this.value)" class="w-28 accent-[var(--secondary)] cursor-pointer">
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         PERSONAL IDENTITY, PRIDE & INFLUENCES SECTION
+    ======================================================== -->
+    <section id="identity" class="space-y-6 scroll-mt-24">
+      
+      <div>
+        <div class="flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[var(--primary)] mb-1">
+          <span class="material-symbols-outlined text-base">person</span>
+          Pride, Music, Systems &amp; Life
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">The Personal Spectrum</h2>
+        <p class="text-sm text-[var(--outline)] max-w-xl mt-1">
+          Proudly gay, exploring Japanese City Pop vinyls, crafting signalwave chords, and compiling low-latency Linux kernels.
+        </p>
+      </div>
+
+      <!-- Pride & Authentic Self Feature Banner with Expressive Gradient Border -->
+      <div class="glass-card rounded-[38px] p-6 sm:p-8 relative overflow-hidden shadow-m3-2 border border-white/15 bg-gradient-to-r from-red-500/10 via-amber-500/10 via-emerald-500/10 via-blue-500/10 to-purple-500/10">
+        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div class="space-y-2">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-xs font-mono font-bold text-[var(--on-surface)]">
+              <span class="text-base">🏳️‍🌈</span>
+              <span class="bg-gradient-to-r from-rose-400 via-amber-300 via-emerald-400 to-indigo-300 bg-clip-text text-transparent">QUEER &amp; PROUD</span>
+              <span class="text-zinc-400">·</span>
+              <span class="text-[var(--primary)]">Pronouns: Any / All</span>
+            </div>
+            <h3 class="text-2xl font-extrabold tracking-tight">Authentic Identity &amp; Radical Expression</h3>
+            <p class="text-xs sm:text-sm text-[var(--outline)] max-w-2xl leading-relaxed">
+              Living unapologetically as a proud gay person across meteorology, open-source tech, and audio engineering. Embracing queer authenticity, radical empathy, and creative freedom in every chord voiced and every line of code written.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2 font-mono text-xs shrink-0">
+            <span class="px-3.5 py-1.5 rounded-full bg-[var(--surface-container-high)] text-[var(--on-surface)] border border-[var(--outline-glass)]">
+              🏳️‍🌈 Proudly Gay
+            </span>
+            <span class="px-3.5 py-1.5 rounded-full bg-[var(--primary-container)] text-[var(--on-primary-container)] font-bold">
+              Any / All Pronouns
+            </span>
+            <span class="px-3.5 py-1.5 rounded-full bg-[var(--surface-container-highest)] text-[var(--outline)]">
+              Queer in STEM
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Crown Jewel Showcase: Anri's BOOGIE WOOGIE MAINLAND (1988) -->
+      <div class="glass-card rounded-[38px] p-6 sm:p-8 relative overflow-hidden shadow-m3-3 border-2 border-amber-400/40 bg-gradient-to-br from-amber-500/15 via-rose-500/10 to-indigo-950/40 m3-shape-tension-1">
+        <div class="absolute -right-8 -top-8 w-44 h-44 rounded-full bg-amber-400/10 blur-2xl pointer-events-none"></div>
+        <div class="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+          <div class="space-y-3">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/40 text-xs font-mono font-bold tracking-wider uppercase">
+                <span>👑</span> #1 Undisputed Favorite Album
+              </span>
+              <span class="px-2.5 py-1 rounded-full bg-black/40 text-[var(--outline)] text-xs font-mono">
+                For Life Records · May 21, 1988
+              </span>
+            </div>
+            <div>
+              <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white flex items-center gap-3 flex-wrap">
+                <span>ANRI (杏里)</span>
+                <span class="text-amber-300 font-serif italic">— BOOGIE WOOGIE MAINLAND</span>
+              </h3>
+              <p class="text-sm font-jp text-[var(--primary)] font-medium mt-1">
+                ブギウギ・メインランド · The Pinnacle of Japanese Summer Funk &amp; Seaside City Pop
+              </p>
+            </div>
+            <p class="text-xs sm:text-sm text-zinc-300 max-w-3xl leading-relaxed">
+              The undisputed crown jewel of André's vinyl and FLAC collection. Released in May 1988 on For Life Records, <em>BOOGIE WOOGIE MAINLAND</em> represents the high-water mark of late-80s Japanese resort funk and pro-studio craftsmanship: explosive brass section hits, locked-in slap basslines, crisp gated reverb snares, sparkling DX7 chimes, and Anri's irresistible breezy vocals.
+            </p>
+            <!-- Highlighted Key Tracks Pill Grid -->
+            <div class="pt-2">
+              <div class="text-[11px] font-mono text-amber-300/80 uppercase tracking-wider mb-2 font-bold">Key Essential Tracks:</div>
+              <div class="flex flex-wrap gap-2 text-xs font-mono">
+                <span class="px-3 py-1.5 rounded-full bg-black/50 border border-amber-400/30 text-amber-200">
+                  🎵 01. Boogie Woogie Mainland
+                </span>
+                <span class="px-3 py-1.5 rounded-full bg-black/50 border border-amber-400/30 text-amber-200">
+                  🕯️ 06. Summer Candles
+                </span>
+                <span class="px-3 py-1.5 rounded-full bg-black/50 border border-amber-400/30 text-amber-200">
+                  📻 04. D.J. I Love You
+                </span>
+                <span class="px-3 py-1.5 rounded-full bg-black/50 border border-amber-400/30 text-amber-200">
+                  🌊 03. Cool
+                </span>
+                <span class="px-3 py-1.5 rounded-full bg-black/50 border border-amber-400/30 text-amber-200">
+                  🎷 07. Cheek to Cheek
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-col items-center justify-center p-5 rounded-2xl bg-black/40 border border-amber-400/30 shrink-0 text-center min-w-[180px]">
+            <span class="material-symbols-outlined text-4xl text-amber-300">album</span>
+            <div class="font-mono text-xs font-bold text-amber-300 mt-2">10 / 10 MASTERPIECE</div>
+            <div class="text-[10px] text-zinc-400 font-mono mt-1">High-Rotation Daily Play</div>
+            <div class="text-[10px] text-[var(--primary)] font-mono mt-2 bg-white/5 px-2 py-0.5 rounded">Alto Sax Transcriptions</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bento Grid for Identity with Morphing Corners -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Music Card: 80s Japanese City Pop & Alto Sax -->
+        <div class="glass-card m3-shape-tension-1 p-6 sm:p-8 flex flex-col justify-between shadow-m3-1 group">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-[var(--tertiary-container)] text-[var(--on-tertiary-container)] flex items-center justify-center group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-2xl">album</span>
+            </div>
+            <h3 class="text-xl font-bold tracking-tight">Japanese City Pop & Saxophone</h3>
+            <p class="text-xs sm:text-sm text-[var(--outline)] leading-relaxed">
+              Heavily inspired by the vibrant brass arrangements, slap basslines, and glistening Fender Rhodes electric pianos of 1980s Japan. An active alto saxophone player jamming along to vinyl classics and transcribing Anri's summer horn lines.
+            </p>
+          </div>
+          <div class="pt-6 space-y-1.5 font-mono text-[11px] text-[var(--outline)] border-t border-[var(--outline-glass)] mt-4">
+            <div><strong class="text-amber-300">👑 #1 Favorite:</strong> Anri — <em>BOOGIE WOOGIE MAINLAND</em> (1988)</div>
+            <div><strong class="text-[var(--on-surface)]">Junko Yagami:</strong> <em>純 (JUN)</em>, <em>YAGAMANIA</em>, &amp; <em>COMMUNICATION</em></div>
+            <div><strong class="text-[var(--on-surface)]">Tatsuro Yamashita:</strong> <em>For You</em> &amp; <em>Spacy</em></div>
+            <div><strong class="text-[var(--on-surface)]">Meiko Nakahara:</strong> <em>Friday Magic</em></div>
+          </div>
+        </div>
+
+        <!-- System Card: CachyOS & Linux Audio -->
+        <div class="glass-card m3-shape-tension-2 p-6 sm:p-8 flex flex-col justify-between shadow-m3-1 group">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-[var(--primary-container)] text-[var(--on-primary-container)] flex items-center justify-center group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-2xl">terminal</span>
+            </div>
+            <h3 class="text-xl font-bold tracking-tight">CachyOS Linux & Wayland</h3>
+            <p class="text-xs sm:text-sm text-[var(--outline)] leading-relaxed">
+              Workstation powered by CachyOS (Arch-based) with the BORE scheduler for zero-jitter pro-audio rendering in PipeWire, a sleek Wayland setup, fish shell with custom pipelines, and daily mobile computing on Google Pixel 11 Pro XL.
+            </p>
+          </div>
+          <div class="pt-6 space-y-1.5 font-mono text-[11px] text-[var(--outline)] border-t border-[var(--outline-glass)] mt-4">
+            <div class="flex justify-between"><span>Kernel:</span> <span class="text-[var(--primary)] font-bold">Linux 6.12-cachyos-bore</span></div>
+            <div class="flex justify-between"><span>Compositor:</span> <span class="text-[var(--on-surface)]">KDE Plasma 6 (Wayland)</span></div>
+            <div class="flex justify-between"><span>Audio Server:</span> <span class="text-[var(--secondary)]">PipeWire Pro Audio (64 spls)</span></div>
+            <div class="flex justify-between"><span>Mobile:</span> <span class="text-[var(--on-surface)]">Google Pixel 11 Pro XL</span></div>
+          </div>
+        </div>
+
+        <!-- Lifestyle Card: Tennis & Lucky the Cat -->
+        <div class="glass-card m3-shape-tension-3 p-6 sm:p-8 flex flex-col justify-between shadow-m3-1 group">
+          <div class="space-y-4">
+            <div class="w-12 h-12 rounded-2xl bg-[var(--secondary-container)] text-[var(--on-secondary-container)] flex items-center justify-center group-hover:scale-110 transition-transform">
+              <span class="material-symbols-outlined text-2xl">sports_tennis</span>
+            </div>
+            <h3 class="text-xl font-bold tracking-tight">Tennis & Lucky the Tuxedo Cat</h3>
+            <p class="text-xs sm:text-sm text-[var(--outline)] leading-relaxed">
+              When stepping away from weather radar screens and synthesizer tracks, you'll find me on the tennis court practicing heavy top-spin forehands, or hanging out with <strong>Lucky</strong>, a playful tuxedo cat with a huge personality.
+            </p>
+          </div>
+          <div class="pt-6 flex items-center justify-between border-t border-[var(--outline-glass)] mt-4">
+            <button onclick="petLucky()" class="px-4 py-2 rounded-full bg-[var(--surface-container-high)] hover:bg-[var(--surface-container-highest)] border border-[var(--outline-glass)] font-mono text-xs text-[var(--on-surface)] flex items-center gap-1.5 m3-spring-press transition-all">
+              <span>🐱 Pet Lucky</span>
+            </button>
+            <span id="luckyMeowNotice" class="text-xs font-mono text-amber-400 hidden animate-bounce">"Meow! *purrr*"</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ========================================================
+       FOOTER
+  ======================================================== -->
+  <footer class="border-t border-[var(--outline-glass)] glass-nav py-10 px-4 sm:px-6">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-xs text-[var(--outline)] font-mono">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-[var(--primary)] text-[var(--on-primary)] flex items-center justify-center font-bold font-mono text-sm">
+          ド
+        </div>
+        <div>
+          <div class="font-bold text-[var(--on-surface)] flex items-center gap-2 flex-wrap">
+            <span>André // ドヴォルザーク (@fool_in_love)</span>
+            <span class="text-[10px] px-2 py-0.5 rounded-full bg-pink-500/15 text-pink-400 font-mono border border-pink-500/30">🏳️‍🌈 Proudly Gay · Any/All</span>
+          </div>
+          <div class="text-[11px]">Tropical Meteorology &amp; Vaporwave · Four Corners, FL</div>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <a href="#hero" class="hover:text-[var(--primary)] transition-colors flex items-center gap-1">
+          <span class="material-symbols-outlined text-sm">arrow_upward</span> Top
+        </a>
+        <span>·</span>
+        <span>Open-Meteo API Sync</span>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ========================================================
+       FLOATING ACTION BUTTON (FAB) FOR CACHYOS TERMINAL
+  ======================================================== -->
+  <button onclick="toggleTerminalModal()" title="Open CachyOS Terminal (` key)" class="fixed bottom-6 right-6 z-40 bg-[var(--primary)] text-[var(--on-primary)] w-14 h-14 rounded-2xl shadow-m3-3 flex items-center justify-center m3-spring-press hover:scale-105 active:scale-95 transition-all group">
+    <span class="material-symbols-outlined text-2xl group-hover:rotate-12 transition-transform">terminal</span>
+  </button>
+
+
+  <!-- ========================================================
+       INTERACTIVE LINUX TERMINAL MODAL (CachyOS fish shell)
+  ======================================================== -->
+  <div id="terminalModal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="bg-[var(--surface-container-lowest)] border border-[var(--outline-glass)] rounded-[32px] w-full max-w-2xl h-[520px] shadow-m3-4 flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+      
+      <!-- Terminal Header / Titlebar -->
+      <div class="bg-[var(--surface-container)] px-4 py-3 border-b border-[var(--outline-glass)] flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <button onclick="toggleTerminalModal()" class="w-3 h-3 rounded-full bg-red-500 hover:opacity-80"></button>
+          <button class="w-3 h-3 rounded-full bg-yellow-500 hover:opacity-80"></button>
+          <button class="w-3 h-3 rounded-full bg-green-500 hover:opacity-80"></button>
+          <span class="ml-2 font-mono text-xs text-[var(--outline)]">andre@cachyos-fourcorners: ~ (fish)</span>
+        </div>
+        <button onclick="toggleTerminalModal()" class="text-[var(--outline)] hover:text-[var(--on-surface)] m3-spring-press">
+          <span class="material-symbols-outlined text-sm">close</span>
+        </button>
+      </div>
+
+      <!-- Terminal Output Scroll Area -->
+      <div id="terminalBody" class="flex-1 p-4 font-mono text-xs overflow-y-auto space-y-2 text-zinc-300 leading-relaxed">
+        <div class="text-[var(--primary)] font-bold">CachyOS Terminal v6.12 // André (@fool_in_love)</div>
+        <div class="text-zinc-400">Type <span class="text-[var(--primary)] font-bold">help</span> to list commands, or try <span class="text-[var(--primary)] font-bold">whoami</span>, <span class="text-[var(--primary)] font-bold">weather</span>, <span class="text-[var(--primary)] font-bold">neofetch</span>, <span class="text-[var(--primary)] font-bold">favorite</span>, <span class="text-[var(--primary)] font-bold">lucky</span>, or <span class="text-[var(--primary)] font-bold">clear</span>.</div>
+      </div>
+
+      <!-- Terminal Input Line -->
+      <div class="p-3 bg-[var(--surface-container-low)] border-t border-[var(--outline-glass)] flex items-center gap-2 font-mono text-xs">
+        <span class="text-emerald-400 font-bold">andre@cachyos</span><span class="text-[var(--outline)]">:</span><span class="text-cyan-400">~</span><span class="text-[var(--primary)] font-bold">$</span>
+        <input id="termInput" type="text" autocomplete="off" spellcheck="false" placeholder="type a command..." class="flex-1 bg-transparent border-none outline-none text-white font-mono placeholder-zinc-600">
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================
+       JAVASCRIPT LOGIC
+  ======================================================== -->
+  <script>
+    /* ==========================================================
+       1. THEME & PALETTE SYSTEM (GENERIC COLOR NAMES)
+    ========================================================== */
+    function setTheme(colorName) {
+      document.documentElement.setAttribute('data-theme', colorName);
+      localStorage.setItem('andre_palette_theme', colorName);
+    }
+
+    const modeToggleBtn = document.getElementById('modeToggleBtn');
+    const modeIcon = document.getElementById('modeIcon');
+
+    function toggleMode() {
+      const currentMode = document.documentElement.getAttribute('data-mode') || 'dark';
+      const newMode = currentMode === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-mode', newMode);
+      localStorage.setItem('andre_mode_theme', newMode);
+      updateModeIcon(newMode);
+    }
+
+    function updateModeIcon(mode) {
+      modeIcon.textContent = mode === 'light' ? 'dark_mode' : 'light_mode';
+    }
+
+    modeToggleBtn.addEventListener('click', toggleMode);
+
+    // Initial theme restoration
+    const savedPalette = localStorage.getItem('andre_palette_theme') || 'teal';
+    const savedMode = localStorage.getItem('andre_mode_theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedPalette);
+    document.documentElement.setAttribute('data-mode', savedMode);
+    updateModeIcon(savedMode);
+
+
+    /* ==========================================================
+       2. OFFICIAL MATERIAL 3 EXPRESSIVE SHAPE MORPHING
+    ========================================================== */
+    // SVG Paths for official M3 Expressive shapes:
+    // 1: 12-point Scallop / Organic Sunburst
+    // 2: 4-lobe Rounded Flower / Clover
+    // 3: Expressive Squircle
+    // 4: Smooth Tension Shield
+    const m3Shapes = [
+      {
+        name: "12-Pt Scallop",
+        d: "M50,0 C65,0 80,10 88,22 C98,35 100,50 96,65 C90,82 78,95 60,99 C45,101 28,96 17,85 C4,72 0,55 2,38 C5,20 20,4 38,1 Z"
+      },
+      {
+        name: "4-Lobe Clover Flower",
+        d: "M50,15 C60,0 85,0 85,25 C85,35 100,60 85,75 C75,90 60,85 50,100 C40,85 25,90 15,75 C0,60 15,35 15,25 C15,0 40,0 50,15 Z"
+      },
+      {
+        name: "Expressive Squircle",
+        d: "M50,4 C80,4 96,20 96,50 C96,80 80,96 50,96 C20,96 4,80 4,50 C4,20 20,4 50,4 Z"
+      },
+      {
+        name: "Tension Shield",
+        d: "M50,2 C88,2 98,24 92,60 C86,84 62,98 50,100 C38,98 14,84 8,60 C2,24 12,2 50,2 Z"
+      }
+    ];
+
+    let currentShapeIndex = 0;
+    function cycleMorphShape() {
+      currentShapeIndex = (currentShapeIndex + 1) % m3Shapes.length;
+      const target = m3Shapes[currentShapeIndex];
+      const morphPath = document.getElementById('morphPath');
+      const label = document.getElementById('morphShapeLabel');
+      
+      if (morphPath) {
+        morphPath.setAttribute('d', target.d);
+      }
+      if (label) {
+        label.textContent = `Shape: ${target.name}`;
+      }
+    }
+
+    // Auto morph every 4 seconds softly
+    setInterval(cycleMorphShape, 4000);
+
+
+    /* ==========================================================
+       3. M3 EXPRESSIVE CONNECTED BUTTON GROUP INTERACTION
+    ========================================================== */
+    function setFocusTab(index, btnElem) {
+      const parent = document.getElementById('heroButtonGroup');
+      const buttons = parent.querySelectorAll('.m3-connected-btn');
+      
+      buttons.forEach(btn => btn.classList.remove('active'));
+      btnElem.classList.add('active');
+    }
+
+
+    /* ==========================================================
+       4. FOUR CORNERS, FL: LIVE TICKING CLOCK & OPEN-METEO API
+    ========================================================== */
+    function updateFourCornersClock() {
+      const timeElem = document.getElementById('flLocalTime');
+      const dateElem = document.getElementById('flLocalDate');
+
+      const now = new Date();
+      
+      const timeStr = now.toLocaleTimeString('en-US', {
+        timeZone: 'America/New_York',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+      });
+
+      const dateStr = now.toLocaleDateString('en-US', {
+        timeZone: 'America/New_York',
+        weekday: 'short',
+        month: 'short',
+        day: 'numeric',
+        year: 'numeric'
+      });
+
+      if (timeElem) timeElem.textContent = timeStr + ' EDT/EST';
+      if (dateElem) dateElem.textContent = dateStr + ' · Four Corners, FL';
+    }
+
+    setInterval(updateFourCornersClock, 1000);
+    updateFourCornersClock();
+
+    function decodeWMOCode(code) {
+      const codes = {
+        0: { desc: 'Clear Sky', icon: 'wb_sunny' },
+        1: { desc: 'Mainly Clear', icon: 'partly_cloudy_day' },
+        2: { desc: 'Partly Cloudy', icon: 'partly_cloudy_day' },
+        3: { desc: 'Overcast', icon: 'cloud' },
+        45: { desc: 'Fog / Mist', icon: 'foggy' },
+        48: { desc: 'Depositing Rime Fog', icon: 'foggy' },
+        51: { desc: 'Light Drizzle', icon: 'grain' },
+        53: { desc: 'Moderate Drizzle', icon: 'grain' },
+        55: { desc: 'Dense Drizzle', icon: 'grain' },
+        61: { desc: 'Slight Rain', icon: 'rainy' },
+        63: { desc: 'Moderate Rain', icon: 'rainy' },
+        65: { desc: 'Heavy Rain', icon: 'rainy' },
+        71: { desc: 'Slight Snowfall', icon: 'ac_unit' },
+        73: { desc: 'Moderate Snowfall', icon: 'ac_unit' },
+        75: { desc: 'Heavy Snowfall', icon: 'ac_unit' },
+        80: { desc: 'Light Rain Showers', icon: 'shower' },
+        81: { desc: 'Moderate Rain Showers', icon: 'shower' },
+        82: { desc: 'Violent Rain Showers', icon: 'thunderstorm' },
+        95: { desc: 'Thunderstorm', icon: 'thunderstorm' },
+        96: { desc: 'Thunderstorm with Slight Hail', icon: 'thunderstorm' },
+        99: { desc: 'Thunderstorm with Heavy Hail', icon: 'thunderstorm' },
+      };
+      return codes[code] || { desc: 'Fair Weather', icon: 'cloud' };
+    }
+
+    let latestWeatherCache = null;
+
+    async function fetchFourCornersWeather() {
+      const refreshIcon = document.getElementById('weatherRefreshIcon');
+      if (refreshIcon) refreshIcon.classList.add('animate-spin');
+
+      const lat = 28.3456;
+      const lon = -81.6425;
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=America%2FNew_York`;
+
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error('Network response not ok');
+        const data = await response.json();
+        
+        latestWeatherCache = data.current;
+
+        const current = data.current;
+        const temp = Math.round(current.temperature_2m);
+        const apparent = Math.round(current.apparent_temperature);
+        const humidity = current.relative_humidity_2m;
+        const wind = current.wind_speed_10m;
+        const wmo = decodeWMOCode(current.weather_code);
+
+        document.getElementById('weatherTemp').textContent = temp;
+        document.getElementById('weatherApparentTemp').textContent = `${apparent}°F`;
+        document.getElementById('weatherHumidity').textContent = `${humidity}%`;
+        document.getElementById('weatherWindSpeed').textContent = `${wind} mph`;
+        document.getElementById('weatherConditionDesc').textContent = wmo.desc;
+        document.getElementById('weatherSymbol').textContent = wmo.icon;
+
+        const now = new Date();
+        document.getElementById('weatherLastSync').textContent = now.toLocaleTimeString('en-US', {
+          hour: '2-digit',
+          minute: '2-digit'
+        });
+
+      } catch (err) {
+        console.warn('Weather API fetch failed, displaying graceful fallback:', err);
+        document.getElementById('weatherConditionDesc').textContent = 'Subtropical Air Mass (Cached)';
+        document.getElementById('weatherLastSync').textContent = 'Offline fallback';
+      } finally {
+        if (refreshIcon) {
+          setTimeout(() => refreshIcon.classList.remove('animate-spin'), 600);
+        }
+      }
+    }
+
+    fetchFourCornersWeather();
+    setInterval(fetchFourCornersWeather, 300000);
+
+
+    /* ==========================================================
+       5. AUTHENTIC VAPORWAVE & SIGNALWAVE SYNTHESIZER (Web Audio API)
+    ========================================================== */
+    let audioCtx = null;
+    let isPlayingVapor = false;
+    let synthLoopTimer = null;
+    let vaporChordStep = 0;
+    let vaporElapsedTime = 0;
+    let vaporInterval = null;
+
+    let masterGain = null;
+    let tapeWarmthFilter = null;
+    let flutterLfo = null;
+    let flutterGain = null;
+    let delayNode = null;
+    let delayFeedback = null;
+    let delayDampFilter = null;
+    let analyserNode = null;
+
+    const vaporProgressions = [
+      {
+        name: "City Pop 9ths (Fmaj9 → Em7 → Dm9 → Cmaj7)",
+        chords: [
+          [174.61, 220.00, 261.63, 329.63, 392.00], // Fmaj9
+          [164.81, 196.00, 246.94, 293.66, 392.00], // Em7
+          [146.83, 174.61, 220.00, 261.63, 329.63], // Dm9
+          [130.81, 164.81, 196.00, 246.94, 329.63]  // Cmaj7
+        ]
+      },
+      {
+        name: "WeatherStar 4000 (Abmaj9 → Gm7 → Fm9 → Ebmaj7)",
+        chords: [
+          [207.65, 261.63, 311.13, 392.00, 466.16], // Abmaj9
+          [196.00, 233.08, 293.66, 349.23, 440.00], // Gm7
+          [174.61, 207.65, 261.63, 311.13, 392.00], // Fm9
+          [155.56, 196.00, 233.08, 293.66, 349.23]  // Ebmaj7
+        ]
+      },
+      {
+        name: "Late Night Mallsoft (Dbmaj9 → Cm7 → Bbm9 → Abmaj7)",
+        chords: [
+          [138.59, 174.61, 207.65, 246.94, 311.13], // Dbmaj9
+          [130.81, 155.56, 196.00, 233.08, 293.66], // Cm7
+          [116.54, 138.59, 174.61, 207.65, 261.63], // Bbm9
+          [103.83, 130.81, 155.56, 207.65, 246.94]  // Abmaj7
+        ]
+      }
+    ];
+    let currentVaporProgIndex = 0;
+
+    function initVaporAudioGraph() {
+      if (!audioCtx) {
+        const AudioClass = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioClass();
+
+        masterGain = audioCtx.createGain();
+        masterGain.gain.setValueAtTime(0.75, audioCtx.currentTime);
+
+        tapeWarmthFilter = audioCtx.createBiquadFilter();
+        tapeWarmthFilter.type = 'lowpass';
+        tapeWarmthFilter.frequency.setValueAtTime(1200, audioCtx.currentTime);
+        tapeWarmthFilter.Q.setValueAtTime(1.8, audioCtx.currentTime);
+
+        delayNode = audioCtx.createDelay(1.0);
+        delayNode.delayTime.setValueAtTime(0.42, audioCtx.currentTime);
+
+        delayFeedback = audioCtx.createGain();
+        delayFeedback.gain.setValueAtTime(0.38, audioCtx.currentTime);
+
+        delayDampFilter = audioCtx.createBiquadFilter();
+        delayDampFilter.type = 'lowpass';
+        delayDampFilter.frequency.setValueAtTime(1000, audioCtx.currentTime);
+
+        delayNode.connect(delayDampFilter);
+        delayDampFilter.connect(delayFeedback);
+        delayFeedback.connect(delayNode);
+
+        flutterLfo = audioCtx.createOscillator();
+        flutterLfo.frequency.setValueAtTime(0.4, audioCtx.currentTime);
+        flutterGain = audioCtx.createGain();
+        flutterGain.gain.setValueAtTime(7.0, audioCtx.currentTime);
+        flutterLfo.connect(flutterGain);
+        flutterLfo.start();
+
+        analyserNode = audioCtx.createAnalyser();
+        analyserNode.fftSize = 64;
+
+        tapeWarmthFilter.connect(masterGain);
+        tapeWarmthFilter.connect(delayNode);
+        delayDampFilter.connect(masterGain);
+
+        masterGain.connect(analyserNode);
+        analyserNode.connect(audioCtx.destination);
+      }
+    }
+
+    function toggleVaporwaveSynthesizer() {
+      initVaporAudioGraph();
+
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+
+      isPlayingVapor = !isPlayingVapor;
+      const playIcon = document.getElementById('vaporPlayIcon');
+      const idleNotice = document.getElementById('vaporIdleNotice');
+      const reelL = document.getElementById('tapeReelLeft');
+      const reelR = document.getElementById('tapeReelRight');
+
+      if (isPlayingVapor) {
+        playIcon.textContent = 'pause';
+        idleNotice.classList.add('hidden');
+        reelL.classList.add('animate-spin');
+        reelR.classList.add('animate-spin');
+        startVaporSynthLoop();
+      } else {
+        playIcon.textContent = 'play_arrow';
+        idleNotice.classList.remove('hidden');
+        reelL.classList.remove('animate-spin');
+        reelR.classList.remove('animate-spin');
+        stopVaporSynthLoop();
+      }
+    }
+
+    function triggerVaporChord(frequencies, duration) {
+      if (!audioCtx || !isPlayingVapor) return;
+
+      const now = audioCtx.currentTime;
+
+      frequencies.forEach((freq, idx) => {
+        const oscSaw = audioCtx.createOscillator();
+        const oscTri = audioCtx.createOscillator();
+        const noteGain = audioCtx.createGain();
+
+        oscSaw.type = 'sawtooth';
+        oscTri.type = 'triangle';
+
+        oscSaw.frequency.setValueAtTime(freq, now);
+        oscTri.frequency.setValueAtTime(freq, now);
+        oscSaw.detune.setValueAtTime(-5 + idx, now);
+        oscTri.detune.setValueAtTime(5 - idx, now);
+
+        if (flutterGain) {
+          flutterGain.connect(oscSaw.detune);
+          flutterGain.connect(oscTri.detune);
+        }
+
+        noteGain.gain.setValueAtTime(0.0001, now);
+        noteGain.gain.exponentialRampToValueAtTime(0.045, now + 0.9);
+        noteGain.gain.exponentialRampToValueAtTime(0.035, now + duration * 0.7);
+        noteGain.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+        oscSaw.connect(noteGain);
+        oscTri.connect(noteGain);
+        noteGain.connect(tapeWarmthFilter);
+
+        oscSaw.start(now);
+        oscTri.start(now);
+        oscSaw.stop(now + duration + 0.1);
+        oscTri.stop(now + duration + 0.1);
+      });
+    }
+
+    function startVaporSynthLoop() {
+      const prog = vaporProgressions[currentVaporProgIndex].chords;
+      const stepDuration = 3.8;
+
+      function loop() {
+        if (!isPlayingVapor) return;
+        const currentChord = prog[vaporChordStep % prog.length];
+        triggerVaporChord(currentChord, stepDuration);
+        vaporChordStep++;
+        synthLoopTimer = setTimeout(loop, stepDuration * 1000);
+      }
+      loop();
+
+      vaporInterval = setInterval(() => {
+        if (!isPlayingVapor) return;
+        vaporElapsedTime = (vaporElapsedTime + 1) % 228;
+        const mins = Math.floor(vaporElapsedTime / 60);
+        const secs = vaporElapsedTime % 60;
+        document.getElementById('vaporCurrentTime').textContent = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        const pct = (vaporElapsedTime / 228) * 100;
+        document.getElementById('vaporProgressFill').style.width = `${pct}%`;
+      }, 1000);
+    }
+
+    function stopVaporSynthLoop() {
+      if (synthLoopTimer) clearTimeout(synthLoopTimer);
+      if (vaporInterval) clearInterval(vaporInterval);
+    }
+
+    function setVaporVolume(val) {
+      if (masterGain && audioCtx) {
+        masterGain.gain.setValueAtTime(parseFloat(val), audioCtx.currentTime);
+      }
+    }
+
+    function setVaporFilter(freq) {
+      if (tapeWarmthFilter && audioCtx) {
+        tapeWarmthFilter.frequency.setValueAtTime(parseFloat(freq), audioCtx.currentTime);
+      }
+    }
+
+    function setVaporFlutter(depth) {
+      if (flutterGain && audioCtx) {
+        flutterGain.gain.setValueAtTime(parseFloat(depth), audioCtx.currentTime);
+      }
+    }
+
+    function cycleVaporProgression() {
+      currentVaporProgIndex = (currentVaporProgIndex + 1) % vaporProgressions.length;
+      document.getElementById('vaporProgName').textContent = `Progression: ${vaporProgressions[currentVaporProgIndex].name.split(' ')[0]} ${vaporProgressions[currentVaporProgIndex].name.split(' ')[1]}`;
+      if (isPlayingVapor) {
+        stopVaporSynthLoop();
+        startVaporSynthLoop();
+      }
+    }
+
+    function handleScrubberClick(e) {
+      const rect = e.currentTarget.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const pct = Math.max(0, Math.min(1, clickX / rect.width));
+      vaporElapsedTime = Math.floor(pct * 228);
+      document.getElementById('vaporProgressFill').style.width = `${pct * 100}%`;
+    }
+
+    // Canvas Frequency Visualizer Loop
+    const vCanvas = document.getElementById('vaporVisualizerCanvas');
+    const vCtx = vCanvas.getContext('2d');
+
+    function resizeVaporCanvas() {
+      vCanvas.width = vCanvas.clientWidth * window.devicePixelRatio;
+      vCanvas.height = vCanvas.clientHeight * window.devicePixelRatio;
+    }
+    resizeVaporCanvas();
+    window.addEventListener('resize', resizeVaporCanvas);
+
+    function renderVaporVisualizer() {
+      const w = vCanvas.width;
+      const h = vCanvas.height;
+      if (!w || !h) {
+        requestAnimationFrame(renderVaporVisualizer);
+        return;
+      }
+
+      vCtx.clearRect(0, 0, w, h);
+
+      if (analyserNode && isPlayingVapor) {
+        const bufferLength = analyserNode.frequencyBinCount;
+        const data = new Uint8Array(bufferLength);
+        analyserNode.getByteFrequencyData(data);
+
+        const barWidth = (w / bufferLength) * 1.8;
+        let x = 0;
+
+        for (let i = 0; i < bufferLength; i++) {
+          const barHeight = (data[i] / 255) * h * 0.92;
+          vCtx.fillStyle = `rgba(78, 216, 231, ${0.35 + (data[i] / 255) * 0.65})`;
+          vCtx.fillRect(x, h - barHeight, barWidth - 2, barHeight);
+          x += barWidth;
+        }
+      } else {
+        vCtx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
+        vCtx.lineWidth = 1.5;
+        vCtx.beginPath();
+        vCtx.moveTo(0, h / 2);
+        vCtx.lineTo(w, h / 2);
+        vCtx.stroke();
+      }
+
+      requestAnimationFrame(renderVaporVisualizer);
+    }
+    requestAnimationFrame(renderVaporVisualizer);
+
+
+    /* ==========================================================
+       6. INTERACTIVE LINUX TERMINAL (CACHYOS FISH SHELL)
+    ========================================================== */
+    const terminalModal = document.getElementById('terminalModal');
+    const termInput = document.getElementById('termInput');
+    const terminalBody = document.getElementById('terminalBody');
+
+    function toggleTerminalModal() {
+      const isHidden = terminalModal.classList.contains('hidden');
+      if (isHidden) {
+        terminalModal.classList.remove('hidden');
+        terminalModal.classList.add('flex');
+        setTimeout(() => termInput.focus(), 60);
+      } else {
+        terminalModal.classList.add('hidden');
+        terminalModal.classList.remove('flex');
+      }
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === '`' || e.key === '~') {
+        if (document.activeElement !== termInput) {
+          e.preventDefault();
+          toggleTerminalModal();
+        }
+      }
+    });
+
+    const termCommands = {
+      help: () => `
+<div class="text-[var(--primary)] font-bold">AVAILABLE COMMANDS:</div>
+  <span class="text-emerald-400">whoami</span>      : Display identity, pronouns, and profile
+  <span class="text-emerald-400">about</span>       : Detailed biography and background
+  <span class="text-emerald-400">favorite</span>    : Showcase André's #1 favorite album (BOOGIE WOOGIE MAINLAND)
+  <span class="text-emerald-400">anri</span>        : Dedicated tribute to Anri (杏里) &amp; 1988 summer funk
+  <span class="text-emerald-400">music</span>       : Vaporwave synth state &amp; City Pop inspirations
+  <span class="text-emerald-400">id</span>          : POSIX user and group identifiers
+  <span class="text-emerald-400">weather</span>     : Display live Four Corners, FL observations (from API)
+  <span class="text-emerald-400">neofetch</span>    : CachyOS hardware and kernel specifications
+  <span class="text-emerald-400">lucky</span>       : Tuxedo cat ASCII greeting
+  <span class="text-emerald-400">theme</span> &lt;name&gt; : Switch palette ('teal', 'purple', 'green', 'blue', 'rose')
+  <span class="text-emerald-400">clear</span>       : Wipe terminal output
+  <span class="text-emerald-400">exit</span>        : Close terminal console
+      `,
+
+      whoami: () => `
+<div class="space-y-1 font-mono">
+  <div><span class="text-[var(--primary)] font-bold">User:</span> André // ドヴォルザーク (@fool_in_love)</div>
+  <div><span class="text-pink-400 font-bold">Identity:</span> Proudly Gay 🏳️‍🌈</div>
+  <div><span class="text-cyan-400 font-bold">Pronouns:</span> Any / All</div>
+  <div><span class="text-amber-300 font-bold">#1 Album:</span> Anri - BOOGIE WOOGIE MAINLAND (1988) 👑</div>
+  <div><span class="text-emerald-400 font-bold">Location:</span> Four Corners, Florida (28.34°N, 81.64°W)</div>
+  <div><span class="text-amber-400 font-bold">Passions:</span> Tropical Meteorology · Vaporwave / City Pop · CachyOS Linux</div>
+</div>
+      `,
+
+      id: () => `
+<div class="font-mono text-zinc-300">
+  uid=1000(andre) gid=1000(andre) groups=1000(andre),10(wheel),998(audio),999(queer)
+  <div class="text-pink-400 mt-1">identity="Proudly Gay 🏳️‍🌈" pronouns="Any/All" fav_album="BOOGIE WOOGIE MAINLAND (1988)"</div>
+</div>
+      `,
+
+      favorite: () => `
+<div class="border-l-2 border-amber-400 pl-3 py-1 space-y-1 font-mono">
+  <div class="text-amber-300 font-bold">👑 ALL-TIME #1 UNDISPUTED FAVORITE ALBUM:</div>
+  <div class="text-white font-bold text-sm">ANRI (杏里) — BOOGIE WOOGIE MAINLAND (1988)</div>
+  <div class="text-zinc-400 text-xs">Label: For Life Records · Released: May 21, 1988</div>
+  <div class="text-zinc-300 text-xs pt-1">
+    "The absolute pinnacle of late-80s resort funk, pristine brass arrangements, gated drums, DX7 sparkles, and summer seaside nostalgia."
+  </div>
+  <div class="text-cyan-300 text-xs pt-1">
+    Key Tracks: <span class="text-white">Boogie Woogie Mainland</span> · <span class="text-white">Summer Candles</span> · <span class="text-white">D.J. I Love You</span> · <span class="text-white">Cool</span> · <span class="text-white">Cheek to Cheek</span>
+  </div>
+</div>
+      `,
+
+      anri: () => `
+<pre class="text-amber-300 leading-tight">
+  .----------------------------------------.
+  | [=] ANRI - BOOGIE WOOGIE MAINLAND 1988 |
+  | (o)================================(o) |
+  |  SIDE A: BOOGIE WOOGIE MAINLAND / COOL |
+  |  SIDE B: SUMMER CANDLES / D.J. LOVE    |
+  '----------------------------------------'
+</pre>
+<div class="text-xs text-zinc-300 font-mono">
+  Anri's 1988 masterpiece is the definitive soundtrack for Four Corners summer sunsets and alto sax jam sessions.
+</div>
+      `,
+
+      about: () => `
+<div class="border-l-2 border-pink-400 pl-3 py-1 space-y-1 font-mono text-zinc-300">
+  <div class="text-[var(--primary)] font-bold">ANDRÉ (ドヴォルザーク)</div>
+  <div>• <span class="text-pink-400 font-bold">Identity:</span> Proudly Gay 🏳️‍🌈 (Pronouns: Any / All)</div>
+  <div>• <span class="text-amber-300 font-bold">Favorite Album:</span> Anri - BOOGIE WOOGIE MAINLAND (1988) 👑</div>
+  <div>• <span class="text-cyan-400 font-bold">Field:</span> Tropical Meteorology &amp; Remote Sensing (Dvorak Technique, Dual-Pol Radar, Skew-T)</div>
+  <div>• <span class="text-amber-400 font-bold">Music:</span> Vaporwave &amp; 80s City Pop (Alto Sax, Serum, Web Audio synthesizer)</div>
+  <div>• <span class="text-emerald-400 font-bold">OS:</span> CachyOS Linux (BORE kernel scheduler, PipeWire pro-audio)</div>
+  <div>• <span class="text-purple-400 font-bold">Cat:</span> Lucky (Tuxedo cat 🐱)</div>
+</div>
+      `,
+
+      weather: () => {
+        if (!latestWeatherCache) {
+          return `<div>Four Corners, FL: Fetching live API observations... please check back in a second.</div>`;
+        }
+        const wmo = decodeWMOCode(latestWeatherCache.weather_code);
+        return `
+<div class="border-l-2 border-[var(--primary)] pl-3 py-1 space-y-1 font-mono">
+  <div class="text-[var(--primary)] font-bold">FOUR CORNERS, FL (28.3456°N, -81.6425°W)</div>
+  <div class="text-zinc-300">Condition: <strong>${wmo.desc}</strong></div>
+  <div class="text-zinc-300">Temperature: <strong>${Math.round(latestWeatherCache.temperature_2m)}°F</strong> (Feels like ${Math.round(latestWeatherCache.apparent_temperature)}°F)</div>
+  <div class="text-zinc-400">Relative Humidity: ${latestWeatherCache.relative_humidity_2m}% · Wind: ${latestWeatherCache.wind_speed_10m} mph</div>
+  <div class="text-xs text-zinc-500">Source: Open-Meteo High-Resolution Model</div>
+</div>
+        `;
+      },
+
+      neofetch: () => `
+<pre class="text-cyan-400 leading-tight">
+       /\\         <span class="text-[var(--primary)] font-bold">andre@cachyos-fourcorners</span>
+      /  \\        -------------------------
+     / /\\ \\       <span class="text-zinc-400">OS:</span> CachyOS Linux x86_64
+    / /  \\ \\      <span class="text-zinc-400">Host:</span> Custom Meso-Workstation
+   / /    \\ \\     <span class="text-zinc-400">Kernel:</span> 6.12.8-cachyos-bore
+  / / C A  \\ \\    <span class="text-zinc-400">Shell:</span> fish 3.7.1
+ / /   C H  \\ \\   <span class="text-zinc-400">DE/WM:</span> KDE Plasma 6 (Wayland)
+/_/     Y O  \\_\\  <span class="text-zinc-400">Audio:</span> PipeWire Pro Audio (64 spls)
+                  <span class="text-zinc-400">CPU:</span> AMD Ryzen 9 7950X (32 Threads)
+                  <span class="text-zinc-400">GPU:</span> NVIDIA RTX 4080 Super
+                  <span class="text-zinc-400">Mobile:</span> Google Pixel 11 Pro XL
+</pre>
+      `,
+
+      music: () => `
+<div class="text-[var(--tertiary)] space-y-1">
+  <div><strong class="text-amber-300">👑 #1 Favorite Album:</strong> Anri - BOOGIE WOOGIE MAINLAND (1988)</div>
+  <div><strong>Track:</strong> National Forecast (1988 Broadcast Ver.)</div>
+  <div><strong>Voicing:</strong> Polyphonic Jazz 7th &amp; 9th Chords (Web Audio API)</div>
+  <div><strong>Inspirations:</strong> Anri (Boogie Woogie Mainland), Junko Yagami (純, YAGAMANIA), Tatsuro Yamashita, Meiko Nakahara</div>
+  <div><strong>Instrument:</strong> Alto Saxophone &amp; Xfer Serum VST</div>
+</div>
+      `,
+
+      lucky: () => `
+<pre class="text-amber-300 leading-tight">
+    /\\_____/\\
+   /  o   o  \\      *meow! purrrrr*
+  ( ==  ^  == )     Hi from Lucky the tuxedo cat!
+   )         (      I'm purring happily in Four Corners, FL!
+  (           )     
+ ( (  )   (  ) )
+ (__(__)___(__)__)
+</pre>
+      `,
+
+      clear: () => {
+        terminalBody.innerHTML = '';
+        return '';
+      },
+
+      exit: () => {
+        toggleTerminalModal();
+        return 'Session closed.';
+      }
+    };
+
+    termInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const fullCmd = termInput.value.trim();
+        if (!fullCmd) return;
+
+        const cmdDiv = document.createElement('div');
+        cmdDiv.innerHTML = `<span class="text-emerald-400 font-bold">andre@cachyos</span>:<span class="text-cyan-400">~</span>$ <span class="text-white">${escapeHtml(fullCmd)}</span>`;
+        terminalBody.appendChild(cmdDiv);
+
+        const parts = fullCmd.split(' ');
+        const main = parts[0].toLowerCase();
+        const arg = parts[1]?.toLowerCase();
+
+        if (main === 'theme' && arg) {
+          if (['teal', 'purple', 'green', 'blue', 'rose'].includes(arg)) {
+            setTheme(arg);
+            appendTermOutput(`Theme switched to '${arg}'.`);
+          } else {
+            appendTermOutput(`Unknown color. Choose from: teal, purple, green, blue, rose`);
+          }
+        } else if (termCommands[main]) {
+          const res = termCommands[main]();
+          if (res) appendTermOutput(res);
+        } else {
+          appendTermOutput(`<span class="text-red-400">fish: Unknown command '${escapeHtml(fullCmd)}'. Type 'help' for options.</span>`);
+        }
+
+        termInput.value = '';
+        terminalBody.scrollTop = terminalBody.scrollHeight;
+      }
+    });
+
+    function appendTermOutput(html) {
+      const out = document.createElement('div');
+      out.innerHTML = html;
+      terminalBody.appendChild(out);
+      terminalBody.scrollTop = terminalBody.scrollHeight;
+    }
+
+    function escapeHtml(str) {
+      return str.replace(/[&<>"']/g, function(m) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
+      });
+    }
+
+    function petLucky() {
+      const notice = document.getElementById('luckyMeowNotice');
+      notice.classList.remove('hidden');
+      setTimeout(() => notice.classList.add('hidden'), 3500);
+    }
+  </script>
+</body>
+</html>
